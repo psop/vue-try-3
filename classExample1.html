@@ -12,6 +12,9 @@
 <body>
     <div id="app" class="container">
         <div class="row">
+            <button type="button" @click="addNum">累積次數{{num}}</button>
+            dollorSign: {{ dollarSign(num) }}
+
             <div class="col-3 mb-3" v-for="item in data" :key="item.cell">
                 <div class="card">
                     <img :src="item.picture.large" class="card-img-top" alt="...">
@@ -32,10 +35,21 @@
         Vue.createApp({
             data() {
                 return {
+                    num: 0,
                     data: []
                 }
             },
             methods: {
+                // 可由methods觸發
+                addNum() {
+                    // console.log('addNum')
+                    this.num++
+                },
+                // 
+                dollarSign(num) {
+		            console.log('dolloarSign', num)
+		            return `$${num}`
+	            },
                 getRandomUser() {
                     axios.get('https://randomuser.me/api/?results=10')
                         .then((res) => {
@@ -51,6 +65,8 @@
                 }
             },
             mounted() {
+                // 由其他Option API觸發
+                this.addNum()
                 this.getRandomUser()
             }
         }).mount('#app')
