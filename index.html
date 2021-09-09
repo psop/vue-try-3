@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <style>
-        .completed {
-          text-decoration: line-through;
-        }
-    </style>
-    <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
+    <title>To do list with Options API</title>
 </head>
 <body>
     <div id="app">
@@ -52,63 +48,6 @@
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.8/vue.global.min.js" integrity="sha512-x1rsy8H+MyF5EjwAqAwRvqwzTk8eS4xq3LcfEz0RH+kautKVLy11y+0fCGGuEc0A7J/4aNCIC6P15oebcmykgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                  todo: '',
-                  todoList: [],
-                  status: 'all',
-                }
-            },
-            methods: {
-              add() {
-                this.todoList.push({
-                  id: this.todoList.length + 1,
-                  text: this.todo,
-                  completed: false, 
-                })
-                this.todo = ''
-                this.complete()
-                this.updateLS()
-              },
-              updateLS() {
-                localStorage.setItem("todos", JSON.stringify(this.todoList))
-              },
-              remove(todo) {
-                // console.log(todo)
-                const index = this.todoList.findIndex(item => item.id === todo.id)
-                // console.log(index)
-                this.todoList.splice(index, 1)
-                this.updateLS()
-              },
-              complete() {
-                if(this.todo.completed = true)
-                this.updateLS()
-              },
-              clear() {
-                if (window.confirm('確定要全部刪除？')) {
-                  this.todoList = []
-                }
-                this.updateLS()
-              } 
-            },
-            computed: {
-              filterTodo() {
-                switch (this.status) {
-                  case 'active': 
-                    return this.todoList.filter((todo) => !todo.completed)
-                  case 'completed':
-                    return this.todoList.filter((todo) => todo.completed)
-                  default:
-                    return this.todoList
-                }
-              }
-            },
-            mounted() {
-              this.todoList = JSON.parse(localStorage.getItem("todos")) || []
-            },
-        }).mount('#app')
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
