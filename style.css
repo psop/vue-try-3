@@ -226,6 +226,11 @@ label {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 14px;
     color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.select:hover {
+    color: var(--primary-color);
 }
 
 /* extra margin & padding */
