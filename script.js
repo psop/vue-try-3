@@ -18,7 +18,7 @@ Vue.createApp({
                 completed: false, 
         })
             this.todo = ''
-            this.complete()
+            // this.complete()
             this.updateLS()
         },
         updateLS() {
@@ -30,6 +30,9 @@ Vue.createApp({
             // console.log(index)
             this.todoList.splice(index, 1)
             this.updateLS()
+        },
+        changeStatus() {
+            this.todo.completed = !todo.completed
         },
         updateStatus() {
             todo.completed = !todo.completed
@@ -45,12 +48,12 @@ Vue.createApp({
     computed: {
         filterTodo() {
             switch (this.status) {
-                case 'active': 
-                return this.todoList.filter((todo) => !todo.completed)
+                case 'needTodo': 
+                    return this.todoList.filter((todo) => !todo.completed)
                 case 'completed':
-                return this.todoList.filter((todo) => todo.completed)
+                    return this.todoList.filter((todo) => todo.completed)
                 default:
-                return this.todoList
+                    return this.todoList
             }
         }
     },
