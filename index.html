@@ -33,7 +33,7 @@
             <div class="">
               <div class="">
                 <div>
-                  <input :id="todo.id" type="checkbox" class="form-check-input" @click="todo.completed = !todo.completed" :checked="todo.completed">
+                  <input :id="todo.id" type="checkbox" class="form-check-input" @click="updateStatus" :checked="todo.completed">
                   <label :for="todo.id" :class="todo.completed ? 'completed': ''" class="form-check-label">{{todo.text}}</label>
                 </div>
               </div>

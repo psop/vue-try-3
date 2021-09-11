@@ -28,9 +28,9 @@ Vue.createApp({
         this.todoList.splice(index, 1)
         this.updateLS()
         },
-        complete() {
-        if(this.todo.completed = true)
-        this.updateLS()
+        updateStatus() {
+            todo.completed = !todo.completed
+            this.updateLS()
         },
         clear() {
         if (window.confirm('確定要全部刪除？')) {
