@@ -1,10 +1,11 @@
+/* designed by Hexschool https://hexschool.github.io/js-todo/#artboard0 */
 /* -- Index --
 1. global settings 
 2. top (add)
 3. middle (list)
 4. bottom (count & select)
 5. extra margin & padding*/
-/* designed by Hexschool https://hexschool.github.io/js-todo/#artboard0 */
+
 
 /* global settings */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Baloo+Tammudu+2:wght@700&display=swap');
@@ -144,14 +145,10 @@ h1 {
     padding: 0;
 }
 
-.todos li {
+.todo {
     padding: 1rem 2rem;
     border-bottom: 1px solid var(--light-line);
     font-size: 1.2rem;
-    font-family: "Noto Sans TC", sans-serif;
-}
-
-span {
     font-family: "Noto Sans TC", sans-serif;
 }
 
@@ -162,6 +159,10 @@ label {
 
 .checkbox {
 	display: none;
+}
+
+span {
+    font-family: "Noto Sans TC", sans-serif;
 }
 
 .checkbox + label {

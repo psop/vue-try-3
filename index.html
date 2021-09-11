@@ -28,17 +28,14 @@
           <button type="button" class="page" @click.prevent="status = 'active'">待完成</button>
           <button type="button" class="page" @click.prevent="status = 'completed'">已完成</button>
         </div>
-        <ul class="" id="todoList">
-          <li v-for="todo in filterTodo" :key="todo.id" class="list-group-item">
+        <ul class="todos" id="todoList">
+          <li v-for="todo in filterTodo" :key="todo.id" class="todo">
             <div class="">
-              <div class="">
-                <div>
-                  <input :id="todo.id" type="checkbox" class="form-check-input" @click="updateStatus" :checked="todo.completed">
-                  <label :for="todo.id" :class="todo.completed ? 'completed': ''" class="form-check-label">{{todo.text}}</label>
-                </div>
-              </div>
-
-              <button type="button" class="btn-close ms-auto remove" @click="remove(todo)">
+              <input :id="todo.id" type="checkbox" class="checkbox" @click="updateStatus" :checked="todo.completed">
+              <label :for="todo.id" :class="todo.completed ? 'completed': ''"></label>
+              <span>{{todo.text}}</span>
+              <button type="button" class="delete" @click="remove(todo)">
+                <i class="fas fa-times"></i>
               </button>
             </div>
           </li>
