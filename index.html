@@ -22,9 +22,9 @@
       </div>
       <div class="list">
         <div class="filter">
-          <button type="button" class="page active" @click="status = 'all'">全部</button>
-          <button type="button" class="page" @click="status = 'active'">待完成</button>
-          <button type="button" class="page" @click="status = 'completed'">已完成</button>
+          <button type="button" class="page active" @click.prevent="status = 'all'"> 全部</button>
+          <button type="button" class="page" @click.prevent="status = 'active'">待完成</a></button>
+          <button type="button" class="page" @click.prevent="status = 'completed'">已完成</button>
         </div>
         <ul class="todos" id="todoList">
           <li v-for="todo in filterTodo" :key="todo.id" class="todo">
